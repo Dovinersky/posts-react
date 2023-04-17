@@ -1,0 +1,33 @@
+@keyframes rotated-appear {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotated-fade {
+    0% {
+        opacity: 100;
+    }
+    70% {
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

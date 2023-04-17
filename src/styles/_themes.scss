@@ -1,0 +1,94 @@
+@use "sass:color";
+
+$bright-design-color-accent: #e2762d;
+$bright-design-color-text: #000000;
+$bright-design-color-background: #ffffff;
+$bright-design-color-outline: #cccccc;
+
+$bright-design-color-button-background: #dddad7;
+$bright-design-color-button-outline: #7c746d;
+
+$bright-design-color-inactive: #b8b6b6;
+
+
+$dark-design-color-accent: #c9c874;
+$dark-design-color-background: #222222;
+$dark-design-color-text: #ffffff;
+$dark-design-color-outline: #303030;
+
+$dark-design-color-button-background: #41413f;
+$dark-design-color-button-outline: #414139;
+
+$dark-design-color-inactive: #868686;
+
+
+$design-color-success: #307a20;
+$design-color-warning: #9d9e48;
+$design-color-danger: #c13838;
+
+@mixin getThemesSharedVariables() {
+    --color-success: #{$design-color-success};
+    --color-warning: #{$design-color-warning};
+    --color-danger: #{$design-color-danger};
+}
+
+@mixin getBrightThemeVariables() {
+    // Accent
+    --color-accent-primary: #{$bright-design-color-accent};
+    --color-accent-secondary: #{lighten($bright-design-color-accent, 15)};
+
+    // Background
+    --color-background-primary: #{$bright-design-color-background};
+    --color-background-secondary: #{darken($bright-design-color-background, 7)};
+
+    // Button
+    --color-button-background: #{$bright-design-color-button-background};
+    --color-button-outline: #{$bright-design-color-button-outline};
+
+    // Text
+    --color-text-primary: #{$bright-design-color-text};
+    --color-text-secondary: #{lighten($bright-design-color-text, 20)};
+    --color-text-tertiary: #{lighten($bright-design-color-text, 40)};
+    --color-text-quaternary: #{lighten($bright-design-color-text, 70)};
+
+    // --color-text-success-primary: #{$design-color-success};
+    // --color-text-warning-primary: #{$design-color-warning};
+    // --color-text-danger-primary: #{$design-color-danger};
+
+    // Decorations
+    --color-outline-primary: #{$bright-design-color-outline};
+    --color-outline-secondary: #{darken($bright-design-color-outline, 10)};
+
+    --color-inactive: #{$bright-design-color-inactive};
+}
+
+@mixin getDarkThemeVariables() {
+    --color-accent-primary: #{$dark-design-color-accent};
+    --color-accent-secondary: #{darken($dark-design-color-accent, 15)};
+
+    // Background
+    --color-background-primary: #{$dark-design-color-background};
+    --color-background-secondary: #{lighten($dark-design-color-background, 4)};
+
+    // Button background
+    --color-button-background: #{$dark-design-color-button-background};
+    --color-button-outline: #{$dark-design-color-button-outline};
+
+    // Text
+    --color-text-primary: #{$dark-design-color-text};
+    --color-text-secondary: #{darken($dark-design-color-text, 20)};
+    --color-text-tertiary: #{darken($dark-design-color-text, 40)};
+    --color-text-quaternary: #{darken($dark-design-color-text, 70)};
+
+    // Decorations
+    --color-outline-primary: #{$dark-design-color-outline};
+    --color-outline-secondary: #{lighten($dark-design-color-outline, 10)};
+
+    --color-inactive: #{$dark-design-color-inactive};
+}
+
+// $design-color-primary: #ffffff;
+// $design-color-secondary: #000000;
+
+// $color-border-base: darken($design-color-primary, 20);
+// $color-bg-hover-base: darken($design-color-primary, 15);

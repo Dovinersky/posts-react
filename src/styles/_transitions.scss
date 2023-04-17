@@ -1,0 +1,38 @@
+// Theme change transition vars
+$time-theme-stansition: 650ms;
+$func-theme-transition: cubic-bezier(0.000, 0.000, 0.580, 1.000);
+
+// Hover color transition vars
+$time-hover-transition: 200ms;
+$time-hover-transition-bg: 200ms;
+$time-hover-transtion-text: 100ms;
+$time-hover-transition-button-bg: 200ms;
+
+$func-hover-transtion-text: ease;
+$func-hover-transition-bg: ease;
+$func-hover-transition-button-bg: ease;
+
+// Theme button transition
+$time-theme-button-transition-duration: 300ms;
+$time-theme-button-animation-duration: 1200ms;
+
+$deg-hover-theme-button: 20deg;
+
+$func-hover-transition-theme-button: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+$func-theme-button-animation: cubic-bezier(0.305, 0.635, 0.41, 1.17);
+
+@mixin getTransitionVariables {
+    // THEME TRANSITION
+    --time-theme-transition: #{$time-theme-stansition};
+    --func-theme-transition: #{$func-theme-transition};
+    
+    // COLOR HOVER TRANSITIONS
+    --time-hover-transition: #{$time-hover-transition};
+    --time-hover-transtion-text: #{$time-hover-transtion-text};
+    --time-hover-transition-bg: #{$time-hover-transition-bg};
+    --time-hover-transition-button-bg: #{$time-hover-transition-button-bg};
+    
+    --func-hover-transtion-text: #{$func-hover-transtion-text};
+    --func-hover-transition-bg: #{$func-hover-transition-bg};
+    --func-hover-transition-button-bg: #{$func-hover-transition-button-bg};
+}

@@ -1,0 +1,13 @@
+$size-content-max-width: 1200px;
+$size-content-horizontal-padding: 20px;
+
+$size-button-padding: 4px 10px;
+$size-border-radius: 5px;
+
+@mixin getSpaceVariables {
+    --size-content-max-width: #{$size-content-max-width};
+    --size-content-hotizontal-padding: #{$size-content-horizontal-padding};
+    
+    --size-button-padding: #{$size-button-padding};
+    --size-border-radius: #{$size-border-radius};
+}

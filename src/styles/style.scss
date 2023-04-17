@@ -1,0 +1,552 @@
+@use "sass:color";
+@use "spacing" as *;
+@use "themes" as *;
+@use "transitions" as *;
+@use "nullify";
+@use "keyframes";
+
+:root {
+    // STANDARD COLOR VARIABLES.
+    // Associated with bright colors setup.
+    @include getThemesSharedVariables;
+    @include getBrightThemeVariables; // bright theme as standard - doesn't require any specific class names
+    &.theme-dark {
+        @include getDarkThemeVariables;
+    }
+
+    @include getTransitionVariables;
+    @include getSpaceVariables;
+}
+
+* {
+    color: var(--color-text-primary);
+    font-family: Roboto;
+    font-weight: 400;
+}
+
+body,
+div,
+header,
+footer,
+main,
+a,
+p,
+span,
+button,
+svg,
+input,
+select,
+textarea,
+li {
+    transition-property: color, fill, background-color, border-color, outline-color;
+    transition-duration: var(--time-theme-transition);
+    transition-timing-function: var(--func-theme-transition);
+}
+
+body {
+    background-color: var(--color-background-primary);
+}
+
+svg {
+    fill: var(--color-accent-primary);
+}
+
+.content-container {
+    margin: 0px auto;
+    padding-left: $size-content-horizontal-padding;
+    padding-right: $size-content-horizontal-padding;
+    max-width: $size-content-max-width;
+}
+
+// ******************************
+// UI-KIT
+// ******************************
+
+.ThemeButton {
+    border-radius: 50%;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    background-color: transparent;
+    transition-property: transform;
+    transition-duration: $time-theme-button-transition-duration;
+
+    &:hover {
+        transform: rotate(20deg);
+    }
+
+    .BedtimeSVG {
+        animation-name: rotated-fade;
+        animation-duration: $time-theme-button-animation-duration;
+        animation-timing-function: $func-theme-button-animation;
+        opacity: 0;
+    }
+
+    .ClearDaySVG {
+        animation-name: rotated-appear;
+        animation-duration: $time-theme-button-animation-duration;
+        animation-timing-function: $func-theme-button-animation;
+        animation-fill-mode: forwards;
+        opacity: 100;
+    }
+
+    &.theme-dark {
+        .BedtimeSVG {
+            animation-name: rotated-appear;
+            animation-duration: $time-theme-button-animation-duration;
+            animation-timing-function: $func-theme-button-animation;
+            opacity: 100;
+        }
+
+        .ClearDaySVG {
+            animation-name: rotated-fade;
+            animation-duration: $time-theme-button-animation-duration;
+            animation-timing-function: $func-theme-button-animation;
+            opacity: 0;
+        }
+    }
+
+    > * {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.uikit-button,
+.uikit-pagination-button {
+    padding: var(--size-button-padding);
+    border-radius: var(--size-border-radius);
+    font-weight: normal;
+    font-size: inherit;
+
+    // color: var(--color-text-primary);
+    // background-color: var(--color-button-background);
+    outline-style: solid;
+    outline-width: 0;
+
+    &.rounded {
+        border-radius: var(--size-border-radius) !important;
+    }
+
+    &.straight {
+        border-radius: 0px !important;
+    }
+
+    &.circle-sides {
+        border-radius: 1em !important;
+    }
+
+    &.accent {
+        &.text {
+            color: var(--color-accent-primary);
+            background-color: transparent;
+        }
+        &.outlined {
+            color: var(--color-accent-primary);
+            background-color: transparent;
+            outline-color: var(--color-accent-secondary);
+            outline-width: 1px;
+        }
+        &.contained {
+            color: var(--color-background-secondary);
+            background-color: var(--color-accent-primary);
+        }
+    }
+
+    &.default {
+        &.text {
+            color: var(--color-text-primary);
+            background-color: transparent;
+        }
+        &.outlined {
+            color: var(--color-text-primary);
+            background-color: transparent;
+            outline-color: var(--color-button-outline);
+            outline-width: 1px;
+        }
+        &.contained {
+            color: var(--color-text-primary);
+            background-color: var(--color-button-background);
+        }
+    }
+
+    &.default,
+    &.accent {
+        &.text,
+        &.outlined,
+        &.contained {
+            &:disabled {
+                color: var(--color-inactive);
+                outline-color: var(--color-inactive);
+                background-color: transparent;
+                cursor: default;
+            }
+        }
+    }
+}
+
+.uikit-spinner {
+    // display: inline-block;
+    height: 48px;
+    width: 48px;
+
+    &::after {
+        content: "";
+        display: block;
+        width: 48px;
+        height: 48px;
+
+        border-radius: 50%;
+        border-width: 3px;
+        border-style: solid;
+        border-color: var(--color-accent-primary) transparent var(--color-accent-primary) transparent;
+
+        animation-name: spin;
+        animation-duration: 1100ms;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+}
+
+.uikit-pagination {
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    > * {
+        padding: 6px;
+    }
+    & .dots {
+        color: var(--color-text-tertiary);
+    }
+    & .active {
+        outline: 1px solid var(--color-accent-primary);
+    }
+}
+
+.uikit-pagination-button {
+    padding: 10px;
+}
+
+.uikit-text-input {
+    padding: 0.5em;
+    border: 1px solid var(--color-outline-primary);
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-background-primary);
+}
+
+.uikit-select {
+    padding: 0.5em;
+    border: 1px solid var(--color-outline-primary);
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-background-primary);
+}
+
+// ******************************
+// COMPONENTS
+// ******************************
+.Header {
+    padding: 10px 0px;
+    // padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-border-primary);
+    background-color: var(--color-background-secondary);
+
+    .header-title {
+        display: flex;
+        column-gap: 1.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+
+        > .header-brand {
+            margin-right: 2rem;
+            font-family: Roboto;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 2rem;
+            color: var(--color-accent-primary);
+            cursor: default;
+        }
+    }
+
+    .header-nav {
+        flex-grow: 1;
+
+        .active {
+            color: var(--color-accent-primary);
+        }
+
+        > a:not(:last-child) {
+            margin-right: 1.5em;
+        }
+
+        > a {
+            padding: 0px;
+            position: relative;
+
+            &::after {
+                content: "";
+                border-radius: 2px;
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                width: 100%;
+                height: 3px;
+                background-color: var(--color-accent-primary);
+                transition: transform 200ms;
+                transform-origin: right;
+                transform: scaleX(0);
+            }
+
+            &:not(.active):hover::after {
+                transform-origin: left;
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+.Footer {
+    margin-top: 30px;
+    padding: 15px 20px;
+    border-top: 1px solid var(--color-border-secondary);
+
+    line-height: 25px;
+    text-align: center;
+
+    font-family: Roboto;
+    font-style: italic;
+    font-weight: 300;
+
+    > * {
+        color: var(--color-text-secondary);
+        &:last-child {
+            color: var(--color-text-quaternary);
+        }
+    }
+}
+
+.UserCard {
+    display: flex;
+    align-items: center;
+    padding: var(--size-button-padding);
+    border-radius: var(--size-border-radius);
+    outline: 1px solid var(--color-border-primary);
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    & > .name {
+        text-align: end;
+        // > p {
+        //     color: var(--color-text-secondary);
+        // }
+        > p:last-child {
+            color: var(--color-text-tertiary);
+        }
+    }
+}
+
+.UsersList {
+    padding: 1px 10px 5px 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: row;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+.UserListItem {
+    padding: 17px;
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-background-secondary);
+    cursor: pointer;
+    outline-color: var(--color-outline-primary);
+    outline-style: solid;
+    outline-width: 1px;
+
+    .username {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin-bottom: 0.6rem;
+        // transition-duration: var(--time-hover-transition);
+    }
+
+    .email {
+        color: var(--color-text-tertiary);
+    }
+
+    &:hover {
+        &.username {
+            transition-duration: var(--time-hover-transition);
+        }
+        box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.3);
+        // outline-color: var(--color-accent-primary);
+        .username {
+            color: var(--color-accent-primary);
+        }
+    }
+}
+
+.PostsList {
+    > .uikit-spinner {
+        margin: 0px auto;
+    }
+
+    > *:not(:last-child) {
+        margin-bottom: 2.6rem;
+    }
+}
+
+.PostsListItem {
+    line-height: 1.4em;
+    padding: 22px;
+    border-radius: var(--size-border-radius);
+    outline: 1px solid var(--color-outline-primary);
+
+    > .title {
+        font-weight: bold;
+    }
+
+    > .username {
+        color: var(--color-text-tertiary);
+        font-style: italic;
+        margin-bottom: 1em;
+    }
+
+    > .body:not(:last-child) {
+        margin-bottom: 1em;
+    }
+}
+
+.PostsFilter {
+    & > :not(:last-child) {
+        margin-inline-end: 2em;
+    }
+}
+
+.PostCommentsList {
+    > .uikit-spinner {
+        margin: 0px auto;
+    }
+
+    > :not(:last-child) {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--color-outline-primary);
+    }
+
+    > :not(:first-child) {
+        padding-top: 1rem;
+    }
+}
+
+.PostComment {
+    > :first-child {
+        font-style: italic;
+    }
+
+    > :not(:last-child) {
+        margin-bottom: 0.4rem;
+    }
+}
+
+.Modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.dimmed {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    &.blurred {
+        backdrop-filter: blur(1.5px);
+    }
+
+    .modal-content {
+        outline: 1px solid (var(--color-outline-primary));
+        padding: 20px;
+        height: fit-content;
+        max-height: 77vh;
+        border-radius: var(--size-border-radius);
+        background-color: var(--color-background-primary);
+        // overflow-y: auto;
+
+        > *:not(:last-child) {
+            margin-bottom: 1.3rem;
+        }
+
+        .title {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .controls {
+            display: flex;
+            column-gap: 0.8rem;
+            justify-content: end;
+        }
+
+        &.small {
+            width: 25em;
+        }
+
+        &.normal {
+            width: 35em;
+        }
+
+        &.extended {
+            width: 77vw;
+        }
+
+        &.fullviewport {
+            max-height: none;
+            width: 100vw;
+            height: 100vh;
+        }
+    }
+}
+
+// ******************************
+// PAGES / GLOBAL COMPONENTS
+// ******************************
+
+.Login {
+    > .uikit-spinner {
+        margin: 0px auto;
+    }
+}
+
+.PostsView {
+    max-width: 37em;
+    margin: 0px auto;
+    & > :not(:last-child) {
+        margin-bottom: 2em;
+    }
+}
+
+.About {
+    max-width: 37em;
+    margin: 0px auto;
+    line-height: 1.7em;
+
+    .italic {
+        font-style: italic;
+    }
+
+    ul {
+        padding-left: 2em;
+    }
+
+    li {
+        list-style: outside;
+    }
+}
