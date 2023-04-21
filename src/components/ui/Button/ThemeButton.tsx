@@ -1,7 +1,7 @@
+import { BedtimeSVG, ClearDaySVG } from "assets/SVGHub";
+import { useAppDispatch, useAppSelector } from "hooks/storeHooks";
 import React, { FC } from "react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/storeHooks";
-import { toggle } from "../../../store/slices/themeSlice";
-import { ClearDaySVG, BedtimeSVG } from "../../../assets/SVGHub";
+import { toggle } from "store/slices/themeSlice";
 
 const ThemeButton: FC = () => {
     const theme = useAppSelector((state) => state.theme);

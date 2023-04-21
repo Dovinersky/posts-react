@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import UsersList from "../../components/UsersList";
-import { UserBase } from "../../models/User";
 import { Provider } from "react-redux";
-import { store } from "../../store/store";
+import { UserBase } from "models/User";
+import { store } from "store/store";
+import UsersList from "components/UsersList";
 
 const users: UserBase[] = [
     {

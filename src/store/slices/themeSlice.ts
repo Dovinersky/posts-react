@@ -1,5 +1,4 @@
-import { createSlice, isDraft, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../store";
+import { createSlice } from "@reduxjs/toolkit";
 
 const rootClasses = document.documentElement.classList;
 export const BRIGHT_MODE_NAME = "theme-bright"; // STANDARD

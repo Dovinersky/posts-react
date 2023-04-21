@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import UsersListItem from "./UsersListItem";
-import { UserBase } from "../models/User";
+import { UserBase } from "models/User";
 
 export interface UsersListProps {
     users: UserBase[];

@@ -1,4 +1,3 @@
-// import { wordsMerge } from "../../utils/wordsMerge";
 import wordsMerge from "utils/wordsMerge";
 
 describe("Validate different arguments", () => {

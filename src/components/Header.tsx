@@ -1,8 +1,8 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import UserCard from "./UserCard";
 import ThemeButton from "./ui/Button/ThemeButton";
-import { useAppSelector } from "../hooks/storeHooks";
 import Navbar from "./Navbar";
+import { useAppSelector } from "hooks/storeHooks";
 
 const Header: FC = () => {
     const isAuth = useAppSelector((state) => state.auth.isAuth);

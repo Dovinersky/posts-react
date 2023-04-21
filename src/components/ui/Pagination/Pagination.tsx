@@ -1,5 +1,4 @@
 import React, { FC } from "react";
-import Button from "../Button/Button";
 import PaginationButton from "../Button/PaginationButton";
 
 export interface PaginationProps {

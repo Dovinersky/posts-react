@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Pagination from "./ui/Pagination/Pagination";
 import PostsListItem from "./PostsListItem";
-import Post from "../models/Post";
-import User from "../models/User";
-import { useFetching } from "../hooks/useFetching";
 import { getAllPosts, getAllUsers, getCommentsByPost, getPaginatedPosts } from "../API/JPA";
 import Spinner from "./ui/Spinner/Spinner";
-import { useAppSelector } from "../hooks/storeHooks";
 import Modal from "./ui/Modal/Modal";
 import PostComment from "./PostComment";
 import Comment from "models/Comment";
+import Post from "models/Post";
+import User from "models/User";
+import { useAppSelector } from "hooks/storeHooks";
+import { useFetching } from "hooks/useFetching";
 
 const PostsList = () => {
     // Posts

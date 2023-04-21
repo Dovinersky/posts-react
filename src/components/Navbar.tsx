@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../hooks/storeHooks";
-import { Pages } from "../routes/router";
+import { useAppSelector } from "hooks/storeHooks";
+import { Pages } from "../routes/router"; // required such import
 
 export interface NavbarProps {
     children: ReactNode[];

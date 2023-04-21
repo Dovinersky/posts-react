@@ -1,9 +1,9 @@
 import { FC } from "react";
 import { Navigate } from "react-router-dom";
-import PostsFilter from "../components/PostsFilter";
-import PostsList from "../components/PostsList";
-import { useAppDispatch, useAppSelector } from "../hooks/storeHooks";
-import { Pages } from "../routes/router";
+import { Pages } from "../routes/router"; // required such import
+import { useAppSelector } from "hooks/storeHooks";
+import PostsFilter from "components/PostsFilter";
+import PostsList from "components/PostsList";
 
 const PostsView: FC = () => {
     const isAuth = useAppSelector((state) => state.auth.isAuth);

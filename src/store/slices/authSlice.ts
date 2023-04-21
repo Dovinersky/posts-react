@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { UserBase } from "../../models/User";
-import { RootState } from "../store";
+import { UserBase } from "models/User";
 
 interface authState {
     isAuth: boolean;

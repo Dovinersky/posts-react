@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import { useAppDispatch } from "../hooks/storeHooks";
 import TextInput from "./ui/TextInput/TextInput";
-import { changeSort, changeText, sortTypes } from "../store/slices/postsFilterSlice";
 import Select from "./ui/Select/Select";
+import { changeSort, changeText, sortTypes } from "store/slices/postsFilterSlice";
+import { useAppDispatch } from "hooks/storeHooks";
 
 
 const PostsFilter: FC = () => {

@@ -1,8 +1,7 @@
 import React, { FC } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../hooks/storeHooks";
-import { UserBase } from "../models/User";
-import { authorize } from "../store/slices/authSlice";
+import { useAppDispatch } from "hooks/storeHooks";
+import { UserBase } from "models/User";
+import { authorize } from "store/slices/authSlice";
 
 export interface UserListItemProps {
     userBaseInfo: UserBase;

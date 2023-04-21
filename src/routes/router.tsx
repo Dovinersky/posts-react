@@ -1,11 +1,11 @@
+import Footer from "components/Footer";
+import Header from "components/Header";
 import React from "react";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import About from "../pages/About";
-import PostsView from "../pages/PostsView";
-import Login from "../pages/Login";
-import NotFound from "../pages/NotFound";
+import About from "pages/About";
+import Login from "pages/Login";
+import NotFound from "pages/NotFound";
+import PostsView from "pages/PostsView";
 
 export enum Pages {
     Index = "",
