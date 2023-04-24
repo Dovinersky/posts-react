@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 const About: FC = () => {
     return (
-        <div className="About">
+        <div className="about-page">
             <p>
                 This resource contains test dev fetch requests to <span className="italic">jsonplaceholder api</span>.
             </p>

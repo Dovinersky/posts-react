@@ -11,7 +11,7 @@ const UsersListItem: FC<UserListItemProps> = ({ userBaseInfo }) => {
     const dispatch = useAppDispatch();
     return (
         <div
-            className="UserListItem"
+            className="users-list-item"
             onClick={() => {
                 dispatch(authorize(userBaseInfo));
             }}

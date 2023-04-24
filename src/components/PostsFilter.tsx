@@ -9,7 +9,7 @@ const PostsFilter: FC = () => {
     const dispatch = useAppDispatch();
 
     return (
-        <div className="PostsFilter">
+        <div className="posts-filter">
             <TextInput
                 placeholder="Filter"
                 useDebounce

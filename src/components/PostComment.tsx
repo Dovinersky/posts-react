@@ -8,7 +8,7 @@ export interface PostCommentProps {
 
 const PostComment: FC<PostCommentProps> = ({ commentId, author, body }) => {
     return (
-        <div className="PostComment">
+        <div className="post-comment">
             <p>by {author}</p>
             <p>{body}</p>
         </div>

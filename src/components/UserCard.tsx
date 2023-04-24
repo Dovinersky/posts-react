@@ -17,7 +17,7 @@ const UserCard = () => {
     return (
         <>
             <div
-                className="UserCard"
+                className="user-card"
                 onClick={() => {
                     setIsmodalShown(true);
                 }}

@@ -11,7 +11,7 @@ const ThemeButton: FC = () => {
             onClick={() => {
                 dispatch(toggle());
             }}
-            className={`ThemeButton ${theme.currentModeName}`}
+            className={`theme-button ${theme.currentModeName}`}
             data-test-id="theme-button"
         >
             {/* <span>{theme.isDark ? <BedtimeSVG /> : <ClearDaySVG />}</span> */}

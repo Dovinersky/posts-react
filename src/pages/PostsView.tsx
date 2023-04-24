@@ -10,7 +10,7 @@ const PostsView: FC = () => {
     if (!isAuth) return <Navigate to={`/${Pages.Login}`} />;
     
     return (
-        <div className="PostsView">
+        <div className="posts-page">
             <PostsFilter />
             <PostsList />
         </div>

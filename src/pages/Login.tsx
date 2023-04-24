@@ -24,7 +24,7 @@ const Login: FC<LoginProps> = () => {
     }, []);
 
     return (
-        <div className="Login">
+        <div className="login-page">
             {isAuth && <Navigate to={`/${Pages.Index}`} />}
             {areUsersLoading ? <Spinner /> : <UsersList users={users} />}
         </div>

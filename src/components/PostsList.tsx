@@ -78,7 +78,7 @@ const PostsList = () => {
     };
 
     return (
-        <div className="PostsList">
+        <div className="posts-list">
             {arePostsLoading ? (
                 <Spinner />
             ) : (
@@ -115,7 +115,7 @@ const PostsList = () => {
                 onSubmit={() => setIsCommentsShown(false)}
                 onClose={() => setIsCommentsShown(false)}
             >
-                <div className="PostCommentsList">
+                <div className="post-comments-list">
                     {areCommentsLoading ? (
                         <Spinner />
                     ) : (

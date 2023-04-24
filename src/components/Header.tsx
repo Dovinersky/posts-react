@@ -7,7 +7,7 @@ import { useAppSelector } from "hooks/storeHooks";
 const Header: FC = () => {
     const isAuth = useAppSelector((state) => state.auth.isAuth);
     return (
-        <header className="Header">
+        <header className="header">
             <div className="content-container">
                 <div className="header-title">
                     <p className="header-brand">Lorem Posts</p>

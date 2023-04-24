@@ -31,7 +31,7 @@ const Modal: FC<ModalProps> = ({
     return (
         <Portal>
             <div
-                className={`Modal ${useBackgroundDim && "dimmed"} ${
+                className={`modal ${useBackgroundDim && "dimmed"} ${
                     useBackgroundBlur && "blurred"
                 }`.trimEnd()}
                 onClick={onClose}

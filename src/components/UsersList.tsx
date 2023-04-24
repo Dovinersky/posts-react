@@ -9,7 +9,7 @@ export interface UsersListProps {
 
 const UsersList: FC<UsersListProps> = ({ users, onUserSelect }) => {
     return (
-        <div className="UsersList">
+        <div className="users-list">
             {users.map((user) => (
                 <UsersListItem key={user.id} userBaseInfo={user as UserBase} />
             ))}

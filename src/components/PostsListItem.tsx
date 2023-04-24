@@ -19,7 +19,7 @@ const PostsListItem: FC<PostsListItemProps> = ({
     onPostCommentsClick: onCommentsClick,
 }) => {
     return (
-        <div className="PostsListItem">
+        <div className="posts-list-item">
             <p className="title">{title}</p>
             <p className="username">by {username}</p>
             <p className="body">{body}</p>
