@@ -9,7 +9,7 @@
         "preview": "vite preview",
         "test": "jest",
         "predeploy": "yarn run build",
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d dist"
     },
     "homepage": "https://Dovinersky.github.io/posts-react",
     "dependencies": {
