@@ -1,0 +1,69 @@
+@mixin getMediaQueries() {
+    @media (max-width: 900px) {
+        .user-card > .name > :last-child {
+            display: none;
+        }
+
+        .header-options {
+            flex-direction: row-reverse;
+        }
+    }
+
+    @media (max-width: 850px) {
+        .users-list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 740px) {
+        .user-card > .name > :first-child {
+            display: none;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .header .header-title .header-brand {
+            display: none;
+        }
+
+        .header .header-title .header-brand-shortened {
+            display: unset;
+            margin-right: 0px;
+        }
+
+        .header .header-title .header-options {
+            column-gap: 0px;
+        }
+
+        .users-list {
+            display: unset;
+            > *:not(:first-child) {
+                margin-top: 2rem;
+            }
+        }
+    }
+
+    @media (max-width: 440px) {
+        .posts-list-item {
+            padding: 0px;
+            outline: none;
+        }
+
+        .posts-list {
+            > *:not(:last-child) {
+                margin-bottom: 4rem;
+            }
+        }
+
+        // .users-list {
+        //     display: unset;
+        //     > *:not(:first-child) {
+        //         margin-top: 2rem;
+        //     }
+        // }
+
+        .posts-filter {
+            justify-content: center;
+        }
+    }
+}

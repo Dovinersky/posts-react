@@ -4,6 +4,7 @@
 @use "transitions" as *;
 @use "nullify";
 @use "keyframes";
+@use "media";
 
 :root {
     // STANDARD COLOR VARIABLES.
@@ -255,10 +256,11 @@ svg {
     .header-title {
         display: flex;
         column-gap: 1.5rem;
+        row-gap: 1rem;
         align-items: center;
         flex-wrap: wrap;
 
-        > .header-brand {
+        .header-brand, .header-brand-shortened {
             margin-right: 2rem;
             font-family: Roboto;
             font-style: italic;
@@ -266,6 +268,16 @@ svg {
             font-size: 2rem;
             color: var(--color-accent-primary);
             cursor: default;
+        }
+
+        .header-brand-shortened {
+            display: none;
+        }
+
+        .header-options {
+            display: flex;
+            column-gap: 0.5rem;
+            align-items: center;
         }
     }
 
@@ -340,9 +352,6 @@ svg {
 
     & > .name {
         text-align: end;
-        // > p {
-        //     color: var(--color-text-secondary);
-        // }
         > p:last-child {
             color: var(--color-text-tertiary);
         }
@@ -362,10 +371,10 @@ svg {
     padding: 17px;
     border-radius: var(--size-border-radius);
     background-color: var(--color-background-secondary);
-    cursor: pointer;
     outline-color: var(--color-outline-primary);
     outline-style: solid;
     outline-width: 1px;
+    cursor: pointer;
 
     .username {
         font-size: 1.1rem;
@@ -422,9 +431,10 @@ svg {
 }
 
 .posts-filter {
-    & > :not(:last-child) {
-        margin-inline-end: 2em;
-    }
+    display: flex;
+    column-gap: 2rem;
+    row-gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .post-comments-list {
@@ -550,3 +560,5 @@ svg {
         list-style: outside;
     }
 }
+
+@include media.getMediaQueries;

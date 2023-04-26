@@ -11,9 +11,12 @@ const Header: FC = () => {
             <div className="content-container">
                 <div className="header-title">
                     <p className="header-brand">Lorem Posts</p>
+                    <p className="header-brand-shortened">LP</p>
                     <Navbar />
-                    <ThemeButton />
-                    {isAuth && <UserCard />}
+                    <div className="header-options">
+                        <ThemeButton />
+                        {isAuth && <UserCard />}
+                    </div>
                 </div>
             </div>
         </header>
