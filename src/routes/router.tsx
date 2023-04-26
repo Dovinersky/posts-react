@@ -16,23 +16,29 @@ export enum Pages {
     About = "about",
 }
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+    [
+        {
+            element: (
+                <>
+                    <Header />
+                    <div className="content-container">
+                        <Outlet />
+                    </div>
+                    <Footer />
+                </>
+            ),
+
+            path: Pages.Index,
+            children: [
+                { element: <PostsView />, index: true },
+                { element: <About />, path: Pages.About },
+                { element: <Login />, path: Pages.Login },
+            ],
+            errorElement: <NotFound />,
+        },
+    ],
     {
-        element: (
-            <>
-                <Header />
-                <div className="content-container">
-                    <Outlet />
-                </div>
-                <Footer />
-            </>
-        ),
-        path: Pages.Index,
-        children: [
-            { element: <PostsView />, index: true },
-            { element: <About />, path: Pages.About },
-            { element: <Login />, path: Pages.Login },
-        ],
-        errorElement: <NotFound />,
-    },
-]);
+        basename: "/posts-react/",
+    }
+);
