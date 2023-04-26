@@ -3,10 +3,11 @@ import wordsMerge from "../../../utils/wordsMerge";
 
 interface SelectProps extends React.InputHTMLAttributes<HTMLSelectElement> {
     options?: string[];
+    prefix?: string;
     defaultOption?: string;
 }
 
-const Select: FC<SelectProps> = ({ options, defaultOption = "", ...props }) => {
+const Select: FC<SelectProps> = ({ options, defaultOption = "", prefix, ...props }) => {
     if (props.className) props.className = wordsMerge("uikit-select", props.className);
     else props.className = "uikit-select";
     return (
@@ -15,7 +16,7 @@ const Select: FC<SelectProps> = ({ options, defaultOption = "", ...props }) => {
             {options &&
                 options.map((option) => (
                     <option key={option} value={option.toLowerCase()}>
-                        {option}
+                        {`${prefix}${option}`}
                     </option>
                 ))}
         </select>

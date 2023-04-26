@@ -18,7 +18,7 @@ const PostsFilter: FC = () => {
                 }}
             />
             <Select
-                defaultOption="Sort by"
+                prefix="Sort by "
                 options={["Title", "Content"]}
                 onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
                     dispatch(changeSort(event.target.value as sortTypes));
